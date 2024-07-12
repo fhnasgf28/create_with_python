@@ -1,0 +1,60 @@
+<odoo>
+    <record id="view_school_student_tree" model="ir.ui.view">
+        <field name="name">school.student.tree</field>
+        <field name="model">school.student</field>
+        <field name="arch" type="xml">
+            <tree string="School Students">
+                <field name="name"/>
+                <field name="student_code"/>
+                <field name="class_id"/>
+                <field name="gender"/>
+                <field name="active"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_school_student_form" model="ir.ui.view">
+        <field name="name">school.student.form</field>
+        <field name="model">school.student</field>
+        <field name="arch" type="xml">
+            <form string="School Student">
+                <sheet>
+                <group>
+                    <field name="name"/>
+                    <field name="student_code"/>
+                    <field name="class_id"/>
+                </group>
+                <group>
+                    <field name="age"/>
+                    <field name="gender"/>
+                </group>
+                <group>
+                    <field name="birth_date"/>
+                    <field name="address"/>
+                </group>
+                <group>
+                    <field name="parent_name"/>
+                    <field name="contact_number"/>
+                </group>
+                <group>
+                    <field name="admission_date"/>
+                    <field name="active"/>
+                </group>
+                <group>
+                    <field name="photo"/>
+                </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="action_school_student" model="ir.actions.act_window">
+        <field name="name">School Students</field>
+        <field name="res_model">school.student</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="school_students_menu" name="Students" parent="school_menu" sequence="20"/>
+    <menuitem id="school_students_tree_menu" name="School Students" parent="school_students_menu" action="action_school_student"/>
+</odoo>
